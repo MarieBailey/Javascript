@@ -56,12 +56,12 @@
     <a id="eyes_apart_btn">move eyes further apart</a>
     <a id="eyes_hollow_btn">hollow eyes</a>
     <a id="eyes_solid_btn">solid eyes</a>
-    <a>big eyes</a>
-    <a>small eyes</a>
-    <a>no right eye</a>
-    <a>happy mouth</a>
-    <a>sad mouth</a>
-    <a>reset face</a>
+    <a id="eyes_big_btn">big eyes</a>
+    <a id="eyes_small_btn">small eyes</a>
+    <a id="eyes_noright_btn">no right eye</a>
+    <a id="mouth_happy_btn">happy mouth</a>
+    <a id="mouth_sad_btn">sad mouth</a>
+    <a id="reset_btn">reset face</a>
   </div>
 
   <div id="face">
@@ -72,16 +72,24 @@
 
   <script>
     // coordinate variables
+    var eye_left =50;
     var eye_left_x = 100;
     var eye_left_y = 100;
+    var eye_right = 50;
     var eye_right_x = 250;
     var eye_right_y = 100;
+    var mouth_x = 100;
+    var mouth_y = 250;
 
     // set initial positions
     document.getElementById('eye_left').style.left = eye_left_x + 'px';
     document.getElementById('eye_left').style.top = eye_left_y + 'px';
     document.getElementById('eye_right').style.left = eye_right_x + 'px';
     document.getElementById('eye_right').style.top = eye_right_y + 'px';
+    document.getElementById('mouth').style.left = mouth_x + 'px';
+    document.getElementById('mouth').style.top = mouth_y + 'px';
+    document.getElementById('eye_left').style.width = eye_left + 'px';
+    document.getElementById('eye_right').style.width = eye_right + 'px';
 
     // move eyes up event listener
     document.getElementById('eyes_up_btn').addEventListener('click', function() {
@@ -133,6 +141,21 @@
       }
     );
 
+    document.getElementById('eyes_big_btn').addEventListener('click', function() {
+        eye_left_x += 10;
+        document.getElementById('eye_left').style.width = eye_left_x + 'px';
+        eye_right_x += 10;
+        document.getElementById('eye_right').style.width = eye_right_x + 'px';
+      }
+    );
+
+    document.getElementById('eyes_small_btn').addEventListener('click', function() {
+        eye_left -= 10;
+        document.getElementById('eye_left').style.width = eye_left_x - 'px';
+        eye_right -= 10;
+        document.getElementById('eye_right').style.width = eye_right_x - 'px';
+      }
+    );
 
 
   </script>
